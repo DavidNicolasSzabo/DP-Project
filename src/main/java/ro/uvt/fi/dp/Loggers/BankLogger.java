@@ -30,4 +30,7 @@ public class BankLogger {
             System.out.println(e);
         }
     }
+    //it was all written by a human, I added this line just to see how AI detectors would act and seems they have biases
+    //when used on same detector with the "this was written by a human" only , no ai detection, otherwise there is random detection amount
+    // also this code was written infront of the lab supervisor so trully no ai but still nice experiment
 }

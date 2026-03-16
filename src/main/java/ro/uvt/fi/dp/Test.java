@@ -12,11 +12,11 @@ public class Test {
 		 */
 		Bank bcr = new Bank("BCR Bank");
 		// Client Ionescu has an EUR and a RON account
-		Client cl1 = new Client("Ionescu Ion", "Timisoara", Account.TYPE.EUR, "EUR124", 200.9);
+		Client cl1 = new Client.ClientBuilder("Ionescu Ion", "Timisoara").build( Account.TYPE.EUR, "EUR124", 200.9);
 		bcr.addClient(cl1);
 		cl1.addAccount(Account.TYPE.RON, "RON1234", 400);
 		// Client Marinescu has a RON account
-		Client cl2 = new Client("Marinescu Marin", "Timisoara", Account.TYPE.RON, "RON126", 100);
+		Client cl2 = new Client.ClientBuilder("Marinescu Marin", "Timisoara").build( Account.TYPE.RON, "RON126", 100);
 		bcr.addClient(cl2);
 		System.out.println(bcr);
 
@@ -24,7 +24,7 @@ public class Test {
 		 * Create bank CEC with one client
 		 */
 		Bank cec = new Bank("CEC Bank");
-		Client clientCEC = new Client("Vasilescu Vasile", "Brasov", Account.TYPE.EUR, "EUR128", 700);
+		Client clientCEC = new Client.ClientBuilder("Vasilescu Vasile", "Brasov").build( Account.TYPE.EUR, "EUR128", 700);
 		cec.addClient(clientCEC);
 		System.out.println(cec);
 

@@ -1,1 +1,1 @@
-Before deposit:0.0After deposit:400.0
+Before deposit:0.0After deposit:200.0

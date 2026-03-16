@@ -5,15 +5,15 @@ import ro.uvt.fi.dp.Interfaces.Operations;
 
 import java.io.FileNotFoundException;
 
-public class Account implements Operations {
+public abstract class Account implements Operations {
 
 	public static enum TYPE {
 		EUR, RON
 	};
 
-	String accountCode = null; //IBAN
-	double amount = 0;
-    double loan = 0;
+	protected String accountCode = null; //IBAN
+	protected double amount = 0;
+    protected double loan = 0;
 	Account.TYPE type = Account.TYPE.RON;
     private BankLogger log;
 
@@ -25,7 +25,7 @@ public class Account implements Operations {
         }
     }
 
-    protected Account(String accountCode, double amount, Account.TYPE type) {
+    protected  Account(String accountCode, double amount, Account.TYPE type) {
 		this.accountCode = accountCode;
 		this.type = type;
 		depose(amount);
