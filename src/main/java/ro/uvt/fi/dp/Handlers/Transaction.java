@@ -6,7 +6,6 @@ import ro.uvt.fi.dp.Objects.Account;
 public abstract class  Transaction implements Operations {
     protected Account acc;
     Transaction successor= new BalanceCheckHandler(this.acc);
-    public void setSuccessor(Transaction successor){this.successor = successor;}
     public abstract void handleRequest(String request);
     public Transaction(Account account){this.acc =account;}
     @Override
@@ -17,9 +16,9 @@ public abstract class  Transaction implements Operations {
             return;
         }
         this.successor.handleRequest("Approval");
-        this.acc.getLog().Log("Before deposit:" + Double.toString(this.successor.getTotalAmount()));
+        this.acc.getLog().Log("Before deposit:" + Double.toString(this.getTotalAmount()));
         this.acc.setAmount(this.acc.getAmount() + amount);
-        this.acc.getLog().Log("After deposit:" + Double.toString(this.successor.getTotalAmount()));
+        this.acc.getLog().Log("After deposit:" + Double.toString(this.getTotalAmount()));
     }
     @Override
     public double getTotalAmount(){
