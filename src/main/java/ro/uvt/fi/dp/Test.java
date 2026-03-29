@@ -3,6 +3,7 @@ package ro.uvt.fi.dp;
 import ro.uvt.fi.dp.Objects.Account;
 import ro.uvt.fi.dp.Objects.Bank;
 import ro.uvt.fi.dp.Objects.Client;
+import ro.uvt.fi.dp.Objects.SavingsAccount;
 
 public class Test {
 
@@ -34,20 +35,22 @@ public class Test {
 		// depose in account RON126 of client Marinescu
 		Client cl = bcr.getClient("Marinescu Marin");
 		if (cl != null) {
-			cl.getAccount("RON126").depose(400);
+			cl.getAccount("RON126").getTransaction().depose(400);
 			System.out.println(cl);
 		}
 
 		// retrieve from account RON126 of Marinescu client
 		if (cl != null) {
-			cl.getAccount("RON126").retrieve(67);
+			cl.getAccount("RON126").getTransaction().retrieve(67);
 			System.out.println(cl);
 		}
 
 		// transfer between accounts RON126 and RON1234
 		Account a1 = cl.getAccount("RON126");
 		Account a2 = bcr.getClient("Ionescu Ion").getAccount("RON1234");
-		a1.transfer(a2, 40);
+        Account a3 = new SavingsAccount("2334325",200, Account.TYPE.RON);
+        cl2.addAccount(Account.TYPE.RON,"2304", 300);
+		a1.getTransaction().transfer(a2, 40);
 		System.out.println(bcr);
 
 	}
