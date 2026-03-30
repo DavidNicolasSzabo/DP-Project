@@ -61,12 +61,19 @@ public class Client {
 
 	@Override
 	public String toString() {
-		return "\n\tClient [name=" + name + ", address=" + address + ", acounts=" + accounts.toString() + "]";
+        Collection<Account> accs =this.getAccounts();
+        String message ="";
+        message= message + "\n\tClient [name=" + name + ", address=" + address + ", acounts=[";
+        for(Account a : accs) {
+            message = message + a.getTransaction().toString();}
+        message = message + "]]";
+		return message;
 	}
 
 	public String getName() {
 		return name;
 	}
+    public Collection<Account> getAccounts(){return this.accounts;}
     public Client getClient(){
         return new
                 ClientBuilder("John Doe","Fake address")

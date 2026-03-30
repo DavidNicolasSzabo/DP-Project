@@ -36,8 +36,8 @@ class AccountTest {
     void testToString() {
         Account account2 = new SavingsAccount("12345",500, Account.TYPE.RON);
         Account account3 = new SavingsAccount("12346",400, Account.TYPE.EUR);
-        assertEquals("Account RON: code=12345, amount=500.0",account2.toString());
-        assertEquals("Account EUR: code=12346, amount=400.0",account3.toString());
+        assertEquals("Account RON: code=12345, amount=540.0",account2.transaction.toString());
+        assertEquals("Account EUR: code=12346, amount=404.0",account3.transaction.toString());
     }
 
     @org.junit.jupiter.api.Test

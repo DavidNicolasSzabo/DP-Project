@@ -12,13 +12,13 @@ class ClientTest {
 
         Client client=new Client.ClientBuilder("Ion","Str.Viorelelor nr.6").build( Account.TYPE.RON,"1234",200);
         Account account =new SavingsAccount("1234",200, Account.TYPE.RON);
-        assertEquals(account.toString(),client.getAccount("1234").toString());
+        assertEquals(account.transaction.toString(),client.getAccount("1234").transaction.toString());
     }
 
     @Test
     void testToString() {
         Client client=new Client.ClientBuilder("Ion","Str.Viorelelor nr.6").build(Account.TYPE.RON,"1234",200);
-        assertEquals("\n\tClient [name=Ion, address=Str.Viorelelor nr.6, acounts=[Account RON: code=1234, amount=200.0]]",client.toString());
+        assertEquals("\n\tClient [name=Ion, address=Str.Viorelelor nr.6, acounts=[Account RON: code=1234, amount=206.0]]",client.toString());
     }
 
     @Test

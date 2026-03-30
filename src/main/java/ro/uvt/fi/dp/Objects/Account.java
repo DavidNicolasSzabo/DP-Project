@@ -1,5 +1,6 @@
 package ro.uvt.fi.dp.Objects;
 
+import ro.uvt.fi.dp.Handlers.BalanceCheckHandler;
 import ro.uvt.fi.dp.Handlers.Transaction;
 import ro.uvt.fi.dp.Loggers.BankLogger;
 import ro.uvt.fi.dp.Interfaces.Operations;
@@ -16,7 +17,9 @@ public abstract class Account {
 	protected String accountCode = null; //IBAN
 	protected double amount = 0;
     protected double loan = 0;
-    protected Transaction transaction;
+    protected Transaction transaction ;
+
+
 
 
 	Account.TYPE type;
@@ -33,7 +36,17 @@ public abstract class Account {
     protected  Account(String accountCode, double amount, Account.TYPE type) {
 		this.accountCode = accountCode;
 		this.type = type;
+        this.transaction = new Transaction(this){
+
+            @Override
+            public void handleRequest(String request) {
+
+            }
+        };
+        this.transaction.setSuccessor(new BalanceCheckHandler(this));
+
 		this.transaction.depose(amount);
+
 	}
     public double getAmount(){return this.amount;}
     public abstract void  loan(double loanAmount);

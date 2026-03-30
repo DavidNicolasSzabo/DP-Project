@@ -3,7 +3,9 @@ package ro.uvt.fi.dp.Handlers;
 import ro.uvt.fi.dp.Objects.Account;
 
 public class ApprovalHandler extends Transaction{
-    Transaction successor = null;
+    private final Transaction successor= null;
+
+
     public ApprovalHandler(Account account) {
         super(account);
     }

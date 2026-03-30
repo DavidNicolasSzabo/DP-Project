@@ -3,9 +3,13 @@ package ro.uvt.fi.dp.Handlers;
 import ro.uvt.fi.dp.Objects.Account;
 
 public class FraudCheckHandler extends Transaction{
-    Transaction successor = new ApprovalHandler(this.acc);
+    private final Transaction successor=null;
+
+
+
     public FraudCheckHandler(Account account) {
         super(account);
+        setSuccessor(new ApprovalHandler(this.acc));
     }
 
     @Override

@@ -3,9 +3,12 @@ package ro.uvt.fi.dp.Handlers;
 import ro.uvt.fi.dp.Objects.Account;
 
 public class LimitCheckHandler extends Transaction{
-    Transaction successor = new FraudCheckHandler(this.acc);
+    private final Transaction successor = null;
+
+
     public LimitCheckHandler(Account account) {
         super(account);
+        setSuccessor(new FraudCheckHandler(this.acc));
     }
 
     @Override
