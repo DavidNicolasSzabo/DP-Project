@@ -1,13 +1,14 @@
 package ro.uvt.fi.dp.Objects;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
 import ro.uvt.fi.dp.Objects.Account.TYPE;
 
-public class Client {
+public class Client implements Serializable {
 	public static final int MAX_ACCOUNTS_NO = 5;
-
+    private static final long serialVersionUID = 1L;
 	private  final String name;
 	private final String address;
 	private final Collection<Account> accounts;

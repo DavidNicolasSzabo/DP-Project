@@ -4,6 +4,9 @@ import ro.uvt.fi.dp.Objects.Account;
 import ro.uvt.fi.dp.Objects.Bank;
 import ro.uvt.fi.dp.Objects.Client;
 import ro.uvt.fi.dp.Objects.SavingsAccount;
+import ro.uvt.fi.dp.UI.ClientView;
+
+import javax.swing.*;
 
 public class Test {
 
@@ -11,6 +14,7 @@ public class Test {
 		/**
 		 * Create BCR bank with 2 clients
 		 */
+        ClientView clientViews[];
 		Bank bcr = new Bank("BCR Bank");
 		// Client Ionescu has an EUR and a RON account
 		Client cl1 = new Client.ClientBuilder("Ionescu Ion", "Timisoara").build( Account.TYPE.EUR, "EUR124", 200.9);
@@ -52,6 +56,7 @@ public class Test {
         cl2.addAccount(Account.TYPE.RON,"2304", 300);
 		a1.getTransaction().transfer(a2, 40);
 		System.out.println(bcr);
+        SwingUtilities.invokeLater(() -> {new ClientView(cl1);});
 
 	}
 	

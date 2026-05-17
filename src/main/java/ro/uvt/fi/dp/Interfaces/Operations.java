@@ -2,7 +2,9 @@ package ro.uvt.fi.dp.Interfaces;
 
 import ro.uvt.fi.dp.Objects.Account;
 
-public interface Operations {
+import java.io.Serializable;
+
+public interface Operations extends Serializable {
 	double getTotalAmount();
 
 	double getInterest();

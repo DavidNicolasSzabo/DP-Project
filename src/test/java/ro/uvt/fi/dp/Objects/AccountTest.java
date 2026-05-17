@@ -101,3 +101,12 @@ class AccountTest {
         assertEquals(0,account3.loan);
     }
 }
+
+
+
+
+
+
+
+
+

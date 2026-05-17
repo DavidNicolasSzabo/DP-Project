@@ -1,5 +1,6 @@
 package ro.uvt.fi.dp.Objects;
 
+import java.io.Serializable;
 import ro.uvt.fi.dp.Handlers.BalanceCheckHandler;
 import ro.uvt.fi.dp.Handlers.Transaction;
 import ro.uvt.fi.dp.Loggers.BankLogger;
@@ -8,8 +9,8 @@ import ro.uvt.fi.dp.Interfaces.Operations;
 import java.io.FileNotFoundException;
 import java.util.Collection;
 
-public abstract class Account {
-
+public abstract class Account implements Serializable {
+    private static final long serialVersionUID = 1L;
 	public static enum TYPE {
 		EUR, RON
 	};
@@ -23,7 +24,7 @@ public abstract class Account {
 
 
 	Account.TYPE type;
-    private BankLogger log;
+    private transient BankLogger log;
 
     {
         try {

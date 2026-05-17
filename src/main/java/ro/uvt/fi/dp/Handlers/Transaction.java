@@ -3,10 +3,12 @@ package ro.uvt.fi.dp.Handlers;
 import ro.uvt.fi.dp.Interfaces.Operations;
 import ro.uvt.fi.dp.Objects.Account;
 
-public abstract class  Transaction implements Operations {
+import java.io.Serializable;
+
+public abstract class  Transaction implements Operations, Serializable {
     protected Account acc;
     private Transaction successor= null;
-
+    private static final long serialVersionUID = 1L;
 
     public abstract void handleRequest(String request);
     public Transaction(Account account){this.acc =account;}

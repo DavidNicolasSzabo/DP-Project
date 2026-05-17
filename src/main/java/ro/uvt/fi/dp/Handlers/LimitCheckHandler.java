@@ -2,7 +2,9 @@ package ro.uvt.fi.dp.Handlers;
 
 import ro.uvt.fi.dp.Objects.Account;
 
-public class LimitCheckHandler extends Transaction{
+import java.io.Serializable;
+
+public class LimitCheckHandler extends Transaction {
     private final Transaction successor = null;
 
 
